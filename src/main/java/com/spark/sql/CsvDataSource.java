@@ -13,9 +13,9 @@ public class CsvDataSource {
 
 	//Pass us-500.csv as input file
 	public static void main(String[] args) {
-		String fileName = args[0];
+		String fileName = args[1];
 		SparkConf sparkConf = new SparkConf().setAppName("CSVDataSource")
-				.setMaster("local");
+				.setMaster(args[0]);
 		ctx = new JavaSparkContext(sparkConf);
 		SQLContext sql = new SQLContext(ctx.sc());
 
@@ -25,7 +25,7 @@ public class CsvDataSource {
 				.option("treatEmptyValuesAsNulls", "true").load(fileName);
 
 		rows.printSchema();
-		rows.write().format("json").save(args[1]);
+		rows.write().format("json").save(args[2]);
 
 //		DataFrame drows = rows.select(rows.col("first_name"),rows.col("city"),rows.col("state"));
 //		drows.write().format("com.databricks.spark.csv").option("header", "true").save("D:\\SparkWorkshop\\test");

@@ -10,9 +10,9 @@ public class JsonDataSource {
 
 	//Pass stocks.json as input file
 	public static void main(String[] args) {
-		String fileName = args[0];
+		String fileName = args[1];
 		SparkConf sparkConf = new SparkConf().setAppName("JSONDataSource")
-				.setMaster("local");
+				.setMaster(args[0]);
 		ctx = new JavaSparkContext(sparkConf);
 		SQLContext sqlContext = new SQLContext(ctx.sc());
 
