@@ -19,6 +19,9 @@ Windows users follow Setup document Steps To Set Up VM on your VirtualBox.docx
 Note: If you get this error while running apt-get commands - "Could not connect to archive.ubuntu.com", follow these steps - 
 
 1) sudo vi /etc/resolv.conf
+
 2) Comment out the original value of nameserver
+
 3) Use nameserver value as 8.8.8.8 or 8.8.4.4
+
 4) Save the file, and try your command again.
