@@ -20,7 +20,7 @@ public class WordCount {
   public static void main(String[] args) {
 
 	  if (args.length < 3) {
-	      System.err.println("Usage: WordCount <sparkmaster> <jobjar> <file>");
+	      System.err.println("Usage: WordCount <sparkmaster> <file>");
 	      System.exit(1);
 	    }
 
@@ -28,11 +28,11 @@ public class WordCount {
 	    
 	    sparkConf.setMaster(args[0]);
 	    
-	    String[] jars = new String[] { args[1]};
-	    sparkConf.setJars(jars);
+	   // String[] jars = new String[] { args[1]};
+	   // sparkConf.setJars(jars);
 	    
 	    JavaSparkContext ctx = new JavaSparkContext(sparkConf);
-	    JavaRDD<String> lines = ctx.textFile(args[2], 1);
+	    JavaRDD<String> lines = ctx.textFile(args[1], 1);
 
 	    JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
 	     
