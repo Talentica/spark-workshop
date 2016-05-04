@@ -68,3 +68,4 @@ sudo apt-get -y install libmysql-java
 sudo add-apt-repository -y ppa:cwchien/gradle
 sudo apt-get -y update
 sudo apt-get -y install gradle-2.5
+sudo apt-get -y install git
