@@ -14,10 +14,10 @@ public class RddtoDF {
 	//Pass persons.txt as input file
 	public static void main(String[] args) {
 		SparkConf sparkConf = new SparkConf().setAppName("rddtodf")
-				.setMaster("local");
+				.setMaster(args[0]);
 		ctx = new JavaSparkContext(sparkConf);
 		
-		JavaRDD<String> textFile = ctx.textFile(args[0]);
+		JavaRDD<String> textFile = ctx.textFile(args[1]);
 		
 		JavaRDD<Person> person = textFile.map(new Function<String, Person>(){
 
